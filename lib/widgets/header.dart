@@ -11,17 +11,22 @@ class HeaderWidget extends StatelessWidget {
     return Stack(
       children: [
         SlideShowsWidget(),
-        Padding(
-          padding: EdgeInsets.only(top: 60.h, left: 16.w),
-          child: TopHeader(),
-        ),
+        // Padding(
+        //   padding: EdgeInsets.only(top: 60.h, left: 16.w),
+        //   child: TopHeader(),
+        // ),
       ],
     );
   }
 }
 
 class TopHeader extends StatelessWidget {
-  const TopHeader({Key? key}) : super(key: key);
+  final bool showShadow;
+  final Color color;
+
+  const TopHeader(
+      {Key? key, this.showShadow = false, this.color = Colors.transparent})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +41,13 @@ class TopHeader extends StatelessWidget {
           child: TextField(
             decoration: InputDecoration(
               border: InputBorder.none,
+              prefixIcon: Icon(
+                Icons.search_rounded,
+                size: 20.sp,
+                color: Colors.grey,
+              ),
               hintText: "Search...",
-              contentPadding: EdgeInsets.only(left: 20.w, top: 5.h),
+              contentPadding: EdgeInsets.only(left: 20.w, top: 15.h),
             ),
           ),
         ),

@@ -72,133 +72,146 @@ class _ProductDetailsState extends State<ProductDetails> {
                     ],
                   ),
                   20.verticalSpace,
-                  Spring.slide(
-                    springController: springController,
-                    slideType: SlideType.slide_in_bottom,
-                    animDuration: Duration(milliseconds: 1000),
-                    curve: Curves.linear,
-                    // delay: Duration(milliseconds: 4000),
-                    cutomTweenOffset:
-                        Tween(begin: Offset(0, 50.h), end: Offset(0, 0)),
-                    extend: 30,
-                    withFade: true,
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: 350.h,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: const Color(0xffF5F5F5),
-                              borderRadius: BorderRadius.circular(8.r)),
-                          child: Image.asset(
-                            widget.product.imgUrl,
-                            width: 70.w,
-                            height: 250.h,
-                            fit: BoxFit.fitWidth,
+                  Container(
+                    height: 600.h,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Spring.slide(
+                            springController: springController,
+                            slideType: SlideType.slide_in_bottom,
+                            animDuration: Duration(milliseconds: 1000),
+                            curve: Curves.linear,
+                            // delay: Duration(milliseconds: 4000),
+                            cutomTweenOffset: Tween(
+                                begin: Offset(0, 50.h), end: Offset(0, 0)),
+                            extend: 30,
+                            withFade: true,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: 350.h,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      color: const Color(0xffF5F5F5),
+                                      borderRadius: BorderRadius.circular(8.r)),
+                                  child: Image.asset(
+                                    widget.product.imgUrl,
+                                    width: 70.w,
+                                    height: 250.h,
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 15.w,
+                                  top: 20.h,
+                                  child: verticalImage(),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Positioned(
-                          left: 15.w,
-                          top: 20.h,
-                          child: verticalImage(),
-                        ),
-                      ],
+                          Spring.slide(
+                            springController: springController,
+                            slideType: SlideType.slide_in_bottom,
+                            animDuration: Duration(milliseconds: 1000),
+                            curve: Curves.linear,
+                            delay: Duration(milliseconds: 500),
+                            cutomTweenOffset: Tween(
+                                begin: Offset(0, 50.h), end: Offset(0, 0)),
+                            extend: 30,
+                            withFade: true,
+                            child: Column(
+                              children: [
+                                15.verticalSpace,
+                                Row(
+                                  children: [
+                                    SvgPicture.asset("assets/images/shop.svg"),
+                                    8.horizontalSpace,
+                                    TextView(
+                                      text: "Tokunbo",
+                                      fontSize: 11.sp,
+                                      color: Color(0xffC2C2C6),
+                                    ),
+                                  ],
+                                ),
+                                10.verticalSpace,
+                                TextView(
+                                  text: widget.product.name,
+                                  fontSize: 17.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                15.verticalSpace,
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      size: 20.sp,
+                                      color: const Color(0xffF9A23B),
+                                    ),
+                                    5.horizontalSpace,
+                                    TextView(
+                                      text: "${widget.product.rating} Ratings",
+                                      fontSize: 13.sp,
+                                      color: const Color(0xffC2C2C6),
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                    15.horizontalSpace,
+                                    Container(
+                                      height: 5.h,
+                                      width: 4.w,
+                                      decoration: const BoxDecoration(
+                                        color: Color(0xffC2C2C6),
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    15.horizontalSpace,
+                                    TextView(
+                                      text:
+                                          "${widget.product.salesCount} Reviews",
+                                      fontSize: 13.sp,
+                                      color: const Color(0xffC2C2C6),
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    15.horizontalSpace,
+                                    Container(
+                                      height: 5.h,
+                                      width: 4.w,
+                                      decoration: const BoxDecoration(
+                                        color: Color(0xffC2C2C6),
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    15.horizontalSpace,
+                                    TextView(
+                                      text: "2.9k + Sold",
+                                      fontSize: 13.sp,
+                                      color: const Color(0xffC2C2C6),
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Container(
+                          //   height: 300.h,
+                          //   color: Colors.orange,
+                          // )
+                          Spring.slide(
+                              springController: springController,
+                              slideType: SlideType.slide_in_bottom,
+                              animDuration: Duration(milliseconds: 1000),
+                              curve: Curves.linear,
+                              delay: Duration(milliseconds: 400),
+                              cutomTweenOffset: Tween(
+                                  begin: Offset(0, 50.h), end: Offset(0, 0)),
+                              extend: 30,
+                              withFade: true,
+                              child: ProductDetailsTab())
+                        ],
+                      ),
                     ),
                   ),
-                  Spring.slide(
-                    springController: springController,
-                    slideType: SlideType.slide_in_bottom,
-                    animDuration: Duration(milliseconds: 1000),
-                    curve: Curves.linear,
-                    delay: Duration(milliseconds: 500),
-                    cutomTweenOffset:
-                        Tween(begin: Offset(0, 50.h), end: Offset(0, 0)),
-                    extend: 30,
-                    withFade: true,
-                    child: Column(
-                      children: [
-                        15.verticalSpace,
-                        Row(
-                          children: [
-                            SvgPicture.asset("assets/images/shop.svg"),
-                            8.horizontalSpace,
-                            TextView(
-                              text: "Tokunbo",
-                              fontSize: 11.sp,
-                              color: Color(0xffC2C2C6),
-                            ),
-                          ],
-                        ),
-                        10.verticalSpace,
-                        TextView(
-                          text: widget.product.name,
-                          fontSize: 17.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        15.verticalSpace,
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              size: 20.sp,
-                              color: const Color(0xffF9A23B),
-                            ),
-                            5.horizontalSpace,
-                            TextView(
-                              text: "${widget.product.rating} Ratings",
-                              fontSize: 13.sp,
-                              color: const Color(0xffC2C2C6),
-                              fontWeight: FontWeight.w700,
-                            ),
-                            15.horizontalSpace,
-                            Container(
-                              height: 5.h,
-                              width: 4.w,
-                              decoration: const BoxDecoration(
-                                color: Color(0xffC2C2C6),
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                            15.horizontalSpace,
-                            TextView(
-                              text: "${widget.product.salesCount} Reviews",
-                              fontSize: 13.sp,
-                              color: const Color(0xffC2C2C6),
-                              fontWeight: FontWeight.w500,
-                            ),
-                            15.horizontalSpace,
-                            Container(
-                              height: 5.h,
-                              width: 4.w,
-                              decoration: const BoxDecoration(
-                                color: Color(0xffC2C2C6),
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                            15.horizontalSpace,
-                            TextView(
-                              text: "2.9k + Sold",
-                              fontSize: 13.sp,
-                              color: const Color(0xffC2C2C6),
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                      child: Spring.slide(
-                          springController: springController,
-                          slideType: SlideType.slide_in_bottom,
-                          animDuration: Duration(milliseconds: 1000),
-                          curve: Curves.linear,
-                          delay: Duration(milliseconds: 400),
-                          cutomTweenOffset:
-                              Tween(begin: Offset(0, 50.h), end: Offset(0, 0)),
-                          extend: 30,
-                          withFade: true,
-                          child: ProductDetailsTab()))
                 ],
               ),
             ),

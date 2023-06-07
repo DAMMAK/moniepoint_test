@@ -13,63 +13,21 @@ class TopSalesProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        10.verticalSpace,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextView(
-              text: "Best Sale Product",
-              fontSize: 15.sp,
-              fontWeight: FontWeight.bold,
-            ),
-            TextButton(
-              onPressed: () {},
-              child: TextView(
-                text: "See More",
-                fontSize: 12.sp,
-                color: AppColor.secondaryColor,
-                fontWeight: FontWeight.w500,
-              ),
-            )
-          ],
-        ),
-        10.verticalSpace,
-        // Expanded(
-        //   child: GridView.count(
-        //     physics: NeverScrollableScrollPhysics(),
-        //     padding: EdgeInsets.zero,
-        //     crossAxisCount: 2,
-        //     crossAxisSpacing: 20.w,
-        //     mainAxisSpacing: 1.0,
-        //     childAspectRatio: 0.72,
-        //     children: List.generate(products.length, (index) {
-        //       return ProductItem(
-        //         product: products[index],
-        //       );
-        //     }),
-        //   ),
-        // )
-        Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            children: products
-                .asMap()
-                .map((key, value) {
-                  return MapEntry(
-                      key,
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: (key + 1) % 2 == 0 ? 25.w : 0.w),
-                        child: ProductItem(
-                          product: value,
-                        ),
-                      ));
-                })
-                .values
-                .toList())
-      ]),
+    return SliverPadding(
+      padding:
+          EdgeInsets.only(top: 20.h, bottom: 150.h, right: 16.w, left: 16.w),
+      sliver: SliverGrid.builder(
+          itemCount: products.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 0.w,
+              mainAxisSpacing: 20.h,
+              childAspectRatio: 0.78),
+          itemBuilder: (BuildContext context, int index) {
+            return ProductItem(
+              product: products[index],
+            );
+          }),
     );
   }
 }
@@ -103,6 +61,7 @@ class _ProductItemState extends State<ProductItem> {
       },
       child: Container(
         width: 155.w,
+        color: Colors.transparent,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
